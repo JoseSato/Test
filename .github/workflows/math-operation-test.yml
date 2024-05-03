@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  Test Math Operation:
+  Test_Math_Operation:
     runs-on: windows-latest
     steps:
       - name: Get Code

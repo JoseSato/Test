@@ -1,0 +1,21 @@
+#Workflow name
+name: First Workflow
+
+#Defines when is executed, workflow_dispatch makes sure that the flow can be started manually
+on: workflow_dispatch
+
+#Defines the jobs to be runned
+jobs:
+
+  #jobs name can be anything
+  first-job:
+  
+    #defined environment
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Print greeting
+        run: echo "Hello World!"
+      - name: Print Goodby
+        run: echo "Done - bye!"
+      

@@ -17,7 +17,7 @@ jobs:
       - name: Print greeting
         run: |
           echo "Hello"
-          echi "World!"
+          echo "World!"
       - name: Print Goodby
         run: echo "Done - bye!"
       

@@ -8,7 +8,7 @@ on:
 
   workflow_dispatch:
 
-Jobs:
+jobs:
   Test Math Operation:
     runs-on: windows-latest
     steps:

@@ -20,7 +20,7 @@ jobs:
 
       - name: Run Tests
         run: npm test
-  Print Message:
+  Print_Message:
     #Indicates that the jobs needs to wait for the execution of 'Test_Math_Operation' to end
     needs: [Test_Math_Operation]
     runs-on: windows-latest

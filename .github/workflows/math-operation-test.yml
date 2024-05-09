@@ -19,4 +19,11 @@ jobs:
         run: npm ci
 
       - name: Run Tests
-        run: npm test 
+        run: npm test
+  Print Message:
+    #Indicates that the jobs needs to wait for the execution of 'Test_Math_Operation' to end
+    needs: [Test_Math_Operation]
+    runs-on: windows-latest
+    steps:
+      - name: Print end message
+        run: echo "Execution ended" 

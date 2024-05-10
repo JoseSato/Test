@@ -5,6 +5,7 @@ on:
 
 jobs:
   info:
+    #NOTE: on windows-latest the echo command works different and need to change the sintaxis to send athe output
     runs-on: ubuntu-latest
     outputs:
       github-context: ${{steps.context.outputs.github-context}}

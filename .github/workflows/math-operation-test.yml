@@ -43,7 +43,7 @@ jobs:
       - name: Cache Dependencies
         uses: actions/cache@v4
         with:
-          path: $NPM_CACHE_PATH
+          path: ~/.npm
           key: deps-node-modules-${{hashFiles('**/package-lock.json')}}
 
       - name: Install Dependencies
@@ -62,7 +62,7 @@ jobs:
       - name: Cache Dependencies
         uses: actions/cache@v4
         with:
-          path: $NPM_CACHE_PATH
+          path: ~/.npm
           key: deps-node-modules-${{hashFiles('**/package-lock.json')}}
 
       - name: Install Dependencies

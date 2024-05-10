@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Output GitHub context
         id: context
-        run: echo 'github-context=${{toJSON(github)}}' >> $GITHUB_OUTPUT ';'
+        run: echo 'github-context=Hello' >> "$GITHUB_OUTPUT"
   Print:
     needs: Info
     runs-on: windows-latest

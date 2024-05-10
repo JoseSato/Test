@@ -4,17 +4,17 @@ on:
   workflow_dispatch:
 
 jobs:
-  Info:
+  info:
     runs-on: windows-latest
     outputs:
       github-context: ${{steps.context.outputs.github-context}}
     steps:
       - name: Output GitHub context
         id: context
-        run: echo 'github-context=Hello' >> "$GITHUB_OUTPUT"
-  Print:
-    needs: Info
+        run: echo "github-context=Hello" >> "$GITHUB_OUTPUT"
+  print:
     runs-on: windows-latest
+    needs: info
     steps:
-      - name: Output contex
-        run: echo '${{needs.Info.outputs.github-context}}'
+      - name: Output Contex
+        run: echo "${{needs.info.outputs.github-context}}"

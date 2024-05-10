@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 env:
-  TEST_NAME: sum
+  NPM_CACHE_PATH: ~/.npm
 
 jobs:
   test-sum:
@@ -23,14 +23,14 @@ jobs:
       - name: Cache Dependencies
         uses: actions/cache@v4
         with:
-          path: ~/.npm
+          path: $NPM_CACHE_PATH
           key: deps-node-modules-${{hashFiles('**/package-lock.json')}}
 
       - name: Install Dependencies
         run: npm ci
 
       - name: Run Tests
-        run: npm test $TEST_NAME
+        run: npm test sum
 
   test-subtract:
     #Indicates that the jobs needs to wait for the execution of 'Test_Math_Operation' to end
@@ -43,14 +43,14 @@ jobs:
       - name: Cache Dependencies
         uses: actions/cache@v4
         with:
-          path: ~/.npm
+          path: $NPM_CACHE_PATH
           key: deps-node-modules-${{hashFiles('**/package-lock.json')}}
 
       - name: Install Dependencies
         run: npm ci
 
       - name: Run Tests
-        run: npm test sum 
+        run: npm test subtract 
 
   test-exponents:
     needs: [test-sum, test-subtract]
@@ -62,7 +62,7 @@ jobs:
       - name: Cache Dependencies
         uses: actions/cache@v4
         with:
-          path: ~/.npm
+          path: $NPM_CACHE_PATH
           key: deps-node-modules-${{hashFiles('**/package-lock.json')}}
 
       - name: Install Dependencies

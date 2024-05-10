@@ -1,10 +1,20 @@
 name: Output information
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
 
 jobs:
-  info:
-    runs-on: ubuntu-latest
+  Info:
+    runs-on: windows-latest
+    outputs:
+      github-context: ${{steps.context.outputs.github-context}}
     steps:
       - name: Output GitHub context
-        run: echo "${{toJSON(github)}}"
+        id: context
+        run: echo 'github-context=${{toJSON(github)}}' >> $GITHUB_OUTPUT ';'
+  Print:
+    needs: Info
+    runs-on: windows-latest
+    steps:
+      - name: Output contex
+        run: echo '${{needs.Info.outputs.github-context}}'

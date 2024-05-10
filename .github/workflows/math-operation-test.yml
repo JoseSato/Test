@@ -3,7 +3,9 @@ name: Testing Math Operation Functions
 on: 
   push:
     branches: ["main"]
+
   pull_request:
+    types: [opened, edited]
     branches: ["main"]
 
   workflow_dispatch:

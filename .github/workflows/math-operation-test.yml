@@ -23,13 +23,12 @@ jobs:
       
       - name: Cache Dependencies
         uses: actions/cache@v4
-        id: npm-cache
+
         with:
           path: ~/.npm
           key: deps-node-modules-${{hashFiles('**/package-lock.json')}}
 
       - name: Install Dependencies
-        if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: Run Tests
@@ -51,13 +50,11 @@ jobs:
       
       - name: Cache Dependencies
         uses: actions/cache@v4
-        id: npm-cache
         with:
           path: ~/.npm
           key: deps-node-modules-${{hashFiles('**/package-lock.json')}}
 
       - name: Install Dependencies
-        if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: Run Tests
@@ -72,13 +69,11 @@ jobs:
       
       - name: Cache Dependencies
         uses: actions/cache@v4
-        id: npm-cache
         with:
           path: ~/.npm
           key: deps-node-modules-${{hashFiles('**/package-lock.json')}}
 
       - name: Install Dependencies
-        if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: Run Tests

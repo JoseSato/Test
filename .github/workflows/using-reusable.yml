@@ -21,8 +21,15 @@ jobs:
         id: sum_test
         run: npm test sum
 
-  Build:
+  build:
     needs: test-sum
     uses: ./.github/workflows/reusable.yml
     with:
       message: "Deployed"
+
+  print-response:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print response
+        run: echo '${{needs.deploy.outputs.result}}'

@@ -5,7 +5,7 @@ on:
       message:
         description: The message to echo
         required: false
-        default: Hello world
+        default: 'Hello world'
         type: string
 
 jobs:

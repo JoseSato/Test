@@ -1,0 +1,6 @@
+name: Use Reusable workflow
+on:
+jobs:
+  Build:
+    needs: deploy
+    uses: ./.github/workflows/reusable.yml

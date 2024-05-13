@@ -8,7 +8,16 @@ jobs:
     strategy:
       matrix:
         node-version: [12, 14, 16]
-        operating-system: [ubuntu-latest, window-latest]
+        operating-system: [ubuntu-latest, windows-latest]
+      #includes a especific combination to the matrix
+      include:
+        - node-version: 18
+          operation-system: ubuntu-latest
+          
+      #removes a especific combination to the matrix
+      exclude:
+        - node-version: 12
+          operation-system: windows-latest
 
     #This job will run once for each value in operating-system
     runs-on: ${{matrix.operating-system}}
@@ -18,7 +27,7 @@ jobs:
 
       #This job will run once for each value in node-version
       - name: Intall NodeJS
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{matrix.node-version}}
 

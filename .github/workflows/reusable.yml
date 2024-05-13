@@ -1,10 +1,16 @@
 name: Reusable Deploy
 on: 
   workflow_call:
+    inputs:
+      message:
+        description: The message to echo
+        required: false
+        default: Hello world
+        type: string
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Output information
-        run: echo 'Deploying & uploading...'
+        run: echo '${{inputs.message}}'

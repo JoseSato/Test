@@ -33,9 +33,10 @@ jobs:
       - name: Run Tests
         id: sum_test
         run: npm test $TEST_FILE
-        
+
+        #failure() indicates that this step will evaluate on failure
       - name: Failed test
-        if: steps.sum_test.outcome == 'failure'
+        if: failure() && steps.sum_test.outcome == 'failure'
         run: echo 'Test for sum operation failed!'
 
   test-subtract:

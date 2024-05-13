@@ -24,3 +24,5 @@ jobs:
   Build:
     needs: test-sum
     uses: ./.github/workflows/reusable.yml
+    with:
+      message: "Deployed"

@@ -1,0 +1,29 @@
+#Matrixes allows the workflow to run for each value in the matrix
+
+name: Matrix Demo
+on: workflow_dispatch
+jobs:
+  build:
+    continue-on-error: true
+    strategy:
+      matrix:
+        node-version: [12, 14, 16]
+        operating-system: [ubuntu-latest, window-latest]
+
+    #This job will run once for each value in operating-system
+    runs-on: ${{matrix.operating-system}}
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v4
+
+      #This job will run once for each value in node-version
+      - name: Intall NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{matrix.node-version}}
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build project
+        run: echo "Build completed!"

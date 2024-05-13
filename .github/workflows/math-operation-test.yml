@@ -13,6 +13,7 @@ on:
 env:
   TEST_FILE: sum
 
+# Jobs are separated to view the use of dependencies cache
 jobs:
   test-sum:
     runs-on: ubuntu-latest
@@ -30,7 +31,12 @@ jobs:
         run: npm ci
 
       - name: Run Tests
+        id: sum_test
         run: npm test $TEST_FILE
+        
+      - name: Failed test
+        if: steps.sum_test.outcome == 'failure'
+        run: echo 'Test for sum operation failed!'
 
   test-subtract:
     #Indicates that the jobs needs to wait for the execution of 'Test_Math_Operation' to end

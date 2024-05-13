@@ -77,3 +77,11 @@ jobs:
 
       - name: Run Tests
         run: npm test exponent 
+
+  print-git-context:
+    needs: [test-sum, test-subtract,test-exponents]
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Github Context
+        run: echo '${{toJSON(github)}}'

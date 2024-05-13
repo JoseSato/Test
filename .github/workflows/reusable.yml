@@ -7,10 +7,19 @@ on:
         required: false
         default: 'Hello world'
         type: string
+    outputs:
+      response:
+        description: Response of the message
+        value: ${{jobs.deploy.outputs.outcome}}
 
 jobs:
   deploy:
+    outputs:
+      outcome: ${{steps.set-response.outputs.response}}
     runs-on: ubuntu-latest
     steps:
       - name: Output information
         run: echo '${{inputs.message}}'
+      - name: Set response message
+        id: set-response
+        run: echo "::set-output name=response::Success"

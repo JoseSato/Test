@@ -1,5 +1,5 @@
 name: Use Reusable workflow
-on:
+on: workflow_dispatch
 jobs:
   Build:
     needs: deploy

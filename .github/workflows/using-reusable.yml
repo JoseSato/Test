@@ -32,4 +32,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print response
-        run: echo '${{needs.deploy.outputs.result}}'
+        run: echo '${{needs.deploy.outputs.response}}'

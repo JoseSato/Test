@@ -1,8 +1,8 @@
 name: Testing Math Operation Functions
 
 on: 
-  push:
-    branches: ["main"]
+  #push:
+    #branches: ["main"]
 
   pull_request:
     types: [opened, edited]
